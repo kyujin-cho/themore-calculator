@@ -4,7 +4,7 @@ import 'chart.js/auto'
 import React from 'react'
 
 import { Delete as DeleteIcon, Upload as UploadIcon } from '@mui/icons-material'
-import { Button } from '@mui/material'
+import { Button, Divider } from '@mui/material'
 import { DataGrid, GridColDef, GridRowParams } from '@mui/x-data-grid'
 import { DateTime } from 'luxon'
 import { Bar, Pie } from 'react-chartjs-2'
@@ -225,7 +225,7 @@ const App = () => {
         <div style={{ padding: 12 }}>
             <h2 style={{ paddingTop: 12 }}>더모아 카드 피킹률 계산기</h2>
             {transactions.length === 0 ? (
-                <div className="center" style={{ marginTop: 6 }}>
+                <div className="center" style={{ marginTop: 6, height: 800 }}>
                     <Button
                         variant="contained"
                         startIcon={<UploadIcon />}
@@ -248,8 +248,11 @@ const App = () => {
                     >
                         다시 계산하기
                     </Button>
-                    <div style={{ display: 'flex', margin: 12 }}>
+                    <div
+                        style={{ display: 'flex', margin: 12, minHeight: 800 }}
+                    >
                         <div style={{ height: 400, margin: 12, width: '25%' }}>
+                            <div style={{ textAlign: 'center' }}></div>
                             <Pie
                                 data={{
                                     labels: ['적립 포인트', '이외 사용 금액'],
@@ -270,7 +273,9 @@ const App = () => {
                                     plugins: {
                                         title: {
                                             display: true,
-                                            text: '피킹율',
+                                            text: `피킹율: ${percent(
+                                                totalPoints / totalUsed
+                                            )}`,
                                         },
                                     },
                                 }}
@@ -363,6 +368,7 @@ const App = () => {
                     </div>
                 </>
             )}
+            <Divider style={{ marginTop: 24, marginBottom: 24 }} />
             <ul className="disclaimer">
                 <li style={{ fontWeight: 'bold' }}>
                     이 페이지는 신한금융그룹 및 신한카드와 아무런 관계가
@@ -378,15 +384,18 @@ const App = () => {
                 <li>
                     이 페이지는 GitHub 社의 GitHub Pages가 기본적으로 수집하는
                     데이터 이외의 모든 데이터를 수집하지 않습니다. GitHub 社에서
-                    수집하는 데이터에 관한 정보는 다음
-                    링크(https://docs.github.com/en/github/site-policy/github-privacy-statement)를
-                    참고하시기 바랍니다.
+                    수집하는 데이터에 관한 정보는{' '}
+                    <a href="https://docs.github.com/en/github/site-policy/github-privacy-statement">
+                        다음 링크
+                    </a>
+                    를 참고하시기 바랍니다.
                 </li>
                 <li>
                     이 페이지는 사용자가 THE MORE 카드 적립 패턴 분석을 위해
                     웹사이트에 제공하는 카드 이용 내역 데이터를 기초로 하여
-                    작동합니다. 해당 데이터는 사용자가 직접 신한카드 홈페이지
-                    (https://www.shinhancard.com)에서 발급받아야 합니다.
+                    작동합니다. 해당 데이터는 사용자가 직접{' '}
+                    <a href="https://www.shinhancard.com">신한카드 홈페이지</a>
+                    에서 발급받아야 합니다.
                 </li>
                 <li>
                     이 페이지에서 제공하는 모든 데이터는 최신 기준의 데이터가
