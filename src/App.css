@@ -3,6 +3,22 @@
     src: url(./NexonLv1.woff) format('woff');
 }
 
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url(./JetBrainsMono-Light.woff2) format('woff');
+    font-weight: lighter;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url(./JetBrainsMono-Regular.woff2) format('woff');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url(./JetBrainsMono-Bold.woff2) format('woff');
+    font-weight: bold;
+}
+
 html,
 body,
 #root {
@@ -38,7 +54,7 @@ body {
 }
 
 .cell-fixedwidth {
-    font-family: monospace;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 h2,
@@ -54,4 +70,10 @@ h6 {
 
 h2 {
     font-size: 40px;
+}
+
+ul.disclaimer {
+    font-size: 10px;
+    font-family: 'JetBrains Mono', sans-serif;
+    color: black;
 }
