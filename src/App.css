@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Nexon Lv1 Gothic';
+    src: url(./NexonLv1.woff) format('woff');
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+#root {
+    background-color: rgb(243, 246, 249);
+}
+
+.center {
+    text-align: center;
+    width: 100%;
+}
+
+.cell-success {
+    background-color: #4caf50;
+}
+
+.cell-boosted {
+    background-color: #42a5f5;
+}
+
+.cell-error {
+    background-color: #ef5350;
+}
+
+.cell-disabled {
+    background-color: lightgray;
+}
+
+.cell-fixedwidth {
+    font-family: monospace;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+    font-family: 'Nexon Lv1 Gothic';
+    font-weight: bold;
+    margin: 0;
+}
+
+h2 {
+    font-size: 40px;
+}
