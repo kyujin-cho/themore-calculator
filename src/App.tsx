@@ -363,6 +363,40 @@ const App = () => {
                     </div>
                 </>
             )}
+            <ul className="disclaimer">
+                <li style={{ fontWeight: 'bold' }}>
+                    이 페이지는 신한금융그룹 및 신한카드와 아무런 관계가
+                    없습니다.
+                </li>
+                <li style={{ fontWeight: 'bold' }}>
+                    이 페이지에서 제공하는 모든 데이터는 법적 효력 및 정확성을
+                    담보하지 않습니다.
+                </li>
+                <li>
+                    이 페이지는 GitHub 社의 Pages 기능을 활용하여 제공됩니다.
+                </li>
+                <li>
+                    이 페이지는 GitHub 社의 GitHub Pages가 기본적으로 수집하는
+                    데이터 이외의 모든 데이터를 수집하지 않습니다. GitHub 社에서
+                    수집하는 데이터에 관한 정보는 다음
+                    링크(https://docs.github.com/en/github/site-policy/github-privacy-statement)를
+                    참고하시기 바랍니다.
+                </li>
+                <li>
+                    이 페이지는 사용자가 THE MORE 카드 적립 패턴 분석을 위해
+                    웹사이트에 제공하는 카드 이용 내역 데이터를 기초로 하여
+                    작동합니다. 해당 데이터는 사용자가 직접 신한카드 홈페이지
+                    (https://www.shinhancard.com)에서 발급받아야 합니다.
+                </li>
+                <li>
+                    이 페이지에서 제공하는 모든 데이터는 최신 기준의 데이터가
+                    아닐 수 있습니다.
+                </li>
+                <li>
+                    이 페이지에 사용자가 제공하는 카드 이용 내역 데이터는
+                    사용자의 브라우저 내에서만 사용됩니다.{' '}
+                </li>
+            </ul>
         </div>
     )
 }
