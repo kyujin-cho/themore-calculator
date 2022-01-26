@@ -6,6 +6,7 @@ import React from 'react'
 import { Delete as DeleteIcon, Upload as UploadIcon } from '@mui/icons-material'
 import { Button } from '@mui/material'
 import { DataGrid, GridColDef, GridRowParams } from '@mui/x-data-grid'
+import { DateTime } from 'luxon'
 import { Bar, Pie } from 'react-chartjs-2'
 import XLSX from 'xlsx'
 
@@ -28,7 +29,7 @@ type RawRow = {
 }
 type Row = {
     id: string
-    이용일시: Date
+    이용일시: DateTime
     승인번호: string
     본인구분: string
     브랜드: string
@@ -58,10 +59,8 @@ const gridCols: GridColDef[] = [
         headerName: '이용일시',
         minWidth: 150,
         valueFormatter: ({ value }) => {
-            const d = value as Date
-            return `${d.getFullYear()}/${padZero(d.getMonth() + 1)}/${padZero(
-                d.getDate()
-            )} ${padZero(d.getHours())}:${padZero(d.getMinutes())}`
+            const d = value as DateTime
+            return d.toFormat('yyyy-MM-dd HH:mm')
         },
     },
     {
@@ -106,7 +105,7 @@ const gridCols: GridColDef[] = [
 const convertRow = ({ 이용일시, 가맹점명, ...row }: RawRow): Row => ({
     ...row,
     id: row.승인번호,
-    이용일시: new Date(Date.parse(이용일시)),
+    이용일시: DateTime.fromFormat(이용일시, 'yyyy/MM/dd  HH:mm'),
     가맹점명,
     firstTransactionOfTheDay: false,
     point: 0,
@@ -125,7 +124,7 @@ const App = () => {
 
         for (const transaction of rows) {
             const { 이용일시 } = transaction
-            const date = 이용일시.toISOString().split('T')[0]
+            const date = 이용일시.toFormat('yyyy-MM-dd')
             if (transactionByDate[date] === undefined)
                 transactionByDate[date] = []
             transactionByDate[date].push(transaction)
@@ -139,7 +138,7 @@ const App = () => {
             let metStores: { [key: string]: boolean } = {}
 
             for (const transaction of transactionByDate[date].sort(
-                (a, b) => a.이용일시.getDate() - b.이용일시.getDate()
+                (a, b) => a.이용일시.toMillis() - b.이용일시.toMillis()
             )) {
                 let firstTransactionOfTheDay = false
                 if (
