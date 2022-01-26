@@ -1,7 +1,12 @@
 {
-    "name": "admin-console-client",
+    "name": "themore-calculator",
     "version": "0.1.0",
-    "private": true,
+    "author": {
+        "name": "Kyujin Cho",
+        "email": "thy2134@gmail.com"
+    },
+    "homepage": "https://themore-calculator.bluehouse.dev",
+    "license": "GPL-3.0-only",
     "dependencies": {
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
